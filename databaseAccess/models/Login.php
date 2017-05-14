@@ -33,7 +33,7 @@ session_start();
 					{
 						$_SESSION['name'] = $row['firstName']; 
 					}
-					header('Location: ../index.php');
+					header('Location: ../Welcome.php');
 				}
 				else
 				{
@@ -45,10 +45,6 @@ session_start();
 
 		function LoggOut()
 		{
-			if($_SESSION['LOGIN'] != 0)
-			{
-				$_SESSION['LOGIN'] = 0;
-				header("Location: index.php");
-			}
+			session_unset();
 		}
 	}

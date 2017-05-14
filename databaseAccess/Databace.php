@@ -25,13 +25,13 @@
 		
 		function Add($table, $values)
 		{
-			$query = "INSERT INTO $table values($values)";
+			$query = "INSERT INTO `$table` values(DEFAULT,  $values)";
 			$this->QueryResult($query);
 		}
 		
-		function Delete($table , $condition)
+		function Delete($table , $id)
 		{
-			$query = "DELETE FROM $table WHERE $condition";
+			$query = "DELETE FROM `$table` WHERE `id`= $id";
 			$this->QueryResult($query);
 		}
 		

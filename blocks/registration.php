@@ -119,7 +119,7 @@
 				$isCorectInfromation = false;
 			}
 
-		// echo $file = $_FILES['imagePath']['name'];
+		 $name = basename($_FILES['img']['tmp_name']);
 
 		
 
@@ -167,7 +167,7 @@
 						<P style="color:red"><?php echo $errorCpass;?></p>
 						<div class="avatar">
 							<img src="../images/noIMG.png" width="100" height="100">
-							<input style="display: inline-block;vertical-align:bottom;" type="file" name="imagePath"></br>
+							<input style="display: inline-block;vertical-align:bottom;" type="file" name="img"></br>
 
 						</div>
 						<P style="color:red"><?php echo $errorImage?></p>

@@ -1,21 +1,31 @@
 <?php 
 	$adress = $_SERVER['REQUEST_URI'] ;
-	$id = substr($adress, -1);
+	$id = substr($adress, -2);
+	$table = array("computers","laptops","tablets","phone");
 	switch ($id) {
-		case '1':Products("ComputersView");
+		case '11':Products("ComputersView", $table[0]);
 			break;
-		case '2':Products("LaptopsView");
+		case '12':Products("ComputersViewWithParameters" ,$table[0]);
 			break;
-		case '3':Products("TabletsView");
+		case '21':Products("ComputersView",$table[1]);
 			break;
-		case '4':Products("PhoneView");
+		case '22':Products("ComputersViewWithParameters",$table[1]);
+			break;	
+		case '31':Products("ComputersView", $table[2]);
+			break;
+		case '32':Products("ComputersViewWithParameters",$table[2]);
+			break;	
+		case '41':Products("ComputersView", $table[3]);
+			break;
+		case '42':Products("ComputersViewWithParameters",$table[3]);
 			break;
 		default:
 			echo "incorect page link";
 			break;
 	}
-	function Products($page)
+	function Products($page, $table)
 	{
+		$_SESSION['table'] = $table;
 		return include ('../blocks/Pages/'.$page.'.php');
 	}
 	function SingIn($value='')
