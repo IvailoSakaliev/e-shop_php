@@ -59,6 +59,15 @@
 			return $result;
 		}
 
+		function GetupdatetingProduct($table, $id)
+		{
+			include_once ('../databaseAccess/Databace.php');
+			$data = new Databace();
+			$condition = "`id` = '$id'" ;
+			$result = $data->GetByParameters($table,$condition );
+			return $result;
+		}
+
 
 		
 

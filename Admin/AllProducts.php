@@ -1,12 +1,20 @@
 <?php 
 	$idAdd = $_SESSION['id'] + 1;
 	$idDelete = $_SESSION['id'] + 3;
+	$idUpdate = $_SESSION['id'] + 2;
 	$table = $_SESSION['table'];
 	if (isset($_POST['delete'])) {
 		$idProduct = $_POST['id'];
 		$_SESSION['product_id'] = $idProduct;
 		header('Location: index.php?id='.$idDelete);
 	}
+
+	if (isset($_POST['update'])) {
+		header('Location: index.php?id='.$idUpdate);
+
+
+	}
+	
  ?>
 
 <html>
