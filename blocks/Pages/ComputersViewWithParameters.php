@@ -1,7 +1,7 @@
 <?php 
 	$table = $_SESSION['table'];
-	include ("../databaseAccess/models/BaceModel.php");
-	$comp = new BaceModel();
-	$condiiton = $comp->GetProductByParameters($table);
+	include("../databaseAccess/models/GetModel.php");
+	$data = new GetModel();
+	$condiiton = $data->GetProductByParameters($table);
 	echo $condiiton;
 ?>

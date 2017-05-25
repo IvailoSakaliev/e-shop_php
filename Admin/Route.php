@@ -33,7 +33,6 @@
 	function Page($page,$table)
 	{
 		$_SESSION['table'] = $table;
-
 		return include ($page.'.php');
 	}
 	

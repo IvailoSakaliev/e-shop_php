@@ -1,9 +1,6 @@
 <?php 
 	session_start();
-		if ($_SESSION['name'] == "" ||	$_SESSION['LOGIN'] == "") {
-			$_SESSION['name'] = "";
-			$_SESSION['LOGIN'] = "";
-		}
+
  ?>
 <html>
 <head>
@@ -34,8 +31,6 @@
 				$id = $_SESSION['LOGIN'];
 					if ($id ==1)
 					{
-						
-
 						echo '<ul>	
 								<li><a href="Admin/index.php">'.$name.'</a></li>
 								<li><a href="index.php">Sing out</a></li>
@@ -51,7 +46,7 @@
 					{
 						echo '<ul>	
 								<li><a href="Login/Login.php">Sing in</a></li>
-								<li><a href="index.php">Sing up</a></li>
+								<li><a href="Templates/SingUp.php">Sing up</a></li>
 							</ul>';
 					}
 				?>

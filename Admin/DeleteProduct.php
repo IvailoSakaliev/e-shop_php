@@ -7,7 +7,6 @@
 		include('../databaseAccess/Databace.php');
 		$data = new Databace();
 		$data->Delete($table, $id);
-		
 	}
 
  ?>

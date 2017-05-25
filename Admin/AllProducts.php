@@ -21,8 +21,8 @@
 	<div class="row">
 		<div style="margin-left:20px; " id="information">
 			<?php  
-				include("../databaseAccess/models/BaceModel.php");
-				$data = new BaceModel();
+				include("../databaseAccess/models/GetModel.php");
+				$data = new GetModel();
 				$result = $data->GetComputerAdmin($table);	
 				while ($row = mysqli_fetch_array($result)) {
 				$title = $row['title'];

@@ -1,6 +1,6 @@
 <?php 
-
-	$fname= $lname = $email = $user = $pass =$cpass= $imgPath = "";
+	session_start();
+	$fname= $lname = $email = $user = $pass =$cpass= $target_file = "";
 	$errorFname = $errorLname = $errorEmail = $errorUser = $errorPass=$errorCpass = $errorImage = "";
 	$isCorectInfromation = true;
 	if (isset($_POST['registration'])) {
@@ -119,9 +119,25 @@
 				$isCorectInfromation = false;
 			}
 
-		 $name = basename($_FILES['img']['tmp_name']);
+		 
 
+		$target_dir = "info/avarat/";
+		$target_image = basename($_FILES["img"]["name"]);
+		if ($target_image == "") {
+			$target_image ="";
+		}
+		else
+		{
+			$target_file = $target_dir . $target_image;
+		}
 		
+
+		if ($isCorectInfromation) {
+			include("../databaseAccess/models/Registration.php");
+			$data = new Registration($fname, $lname , $email , $user , $pass, $target_file);
+			$data->Registration();
+		}
+			
 
 		// edn of validation
 	}
@@ -144,7 +160,7 @@
  	<h3>Registration</h3>
 			<hr>
 				<div class="col-md-6">
-					<form method="post" id="reg">
+					<form method="post" id="reg" enctype="multipart/form-data">
 						<label>First name</label>
 						<input type="text" class="form-control" name="fname" value="<?php  echo $fname?>">
 						<P style="color:red" ><?php echo $errorFname;?></p>
@@ -157,7 +173,7 @@
 						<input type="email" class="form-control" name="email" value="<?php  echo $email ?>">
 						<P style="color:red"><?php echo $errorEmail;?></p>
 						<label>Username</label>
-						<input type="text" class="form-control" name="uer" value="<?php  echo $user ?>">
+						<input type="text" class="form-control" name="user" value="<?php  echo $user ?>">
 						<P style="color:red"><?php echo $errorUser;?></p>
 						<label>Password</label>
 						<input type="password" class="form-control" name="pass" >
@@ -167,7 +183,7 @@
 						<P style="color:red"><?php echo $errorCpass;?></p>
 						<div class="avatar">
 							<img src="../images/noIMG.png" width="100" height="100">
-							<input style="display: inline-block;vertical-align:bottom;" type="file" name="img"></br>
+							<input style="display: inline-block;vertical-align:bottom;" type="file" name="img" value="$target_file"></br>
 
 						</div>
 						<P style="color:red"><?php echo $errorImage?></p>

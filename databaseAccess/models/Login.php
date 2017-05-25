@@ -1,9 +1,11 @@
 <?php
-session_start();
+	session_start();
 	class Login
 	{
 		private $username;
 		private $password;
+		
+		
 		
 		function __construct($user, $pass)
 		{
@@ -42,9 +44,11 @@ session_start();
 
 			}
 		}
+		
 
 		function LoggOut()
 		{
 			session_unset();
 		}
 	}
+?>

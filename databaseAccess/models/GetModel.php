@@ -2,8 +2,10 @@
 
 
 
-	class BaceModel
+	class GetModel
 	{
+		
+		
 		function __construct()
 		{
 			
@@ -56,6 +58,9 @@
 			$result = $data->GetAll($table);
 			return $result;
 		}
+
+
+		
 
 	}
 ?>

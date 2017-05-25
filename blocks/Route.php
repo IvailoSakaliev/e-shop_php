@@ -19,6 +19,8 @@
 			break;
 		case '42':Products("ComputersViewWithParameters",$table[3]);
 			break;
+		case '60':SingIn("registration");
+			break;
 		default:
 			echo "incorect page link";
 			break;
@@ -28,9 +30,9 @@
 		$_SESSION['table'] = $table;
 		return include ('../blocks/Pages/'.$page.'.php');
 	}
-	function SingIn($value='')
+	function SingIn($page)
 	{
-		# code...
+		return include ('../Template/'.$page.'.php');
 	}
 
 ?>
