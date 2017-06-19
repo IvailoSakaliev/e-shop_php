@@ -1,14 +1,6 @@
 
 <?php 
- 	session_start();
- 	$name = $price = "";
- 	if (isset($_POST['filter'])) {
- 			$name = $_POST['name'];
- 			$price = $_POST['price'];
- 			$_SESSION['parms']['name'] = $name;
- 			$_SESSION['parms']['price'] = $price;
- 		}	
- 	
+ 	 	
  ?>
 <html>
 <head>
@@ -40,8 +32,8 @@
 					<li><a href="Products.php?id=ba">Laptops</a></li>
 					<li><a href="Products.php?id=ca">Tablets</a></li>
 					<li><a href="Products.php?id=da">Phones</a></li>
-					<!-- <li><a href="Page.php?id=ao">About us</a></li>
-					<li><a href="Page.php?id =co">Contacts</a></li> -->
+					<li><a href="Page.php?id=ao">About us</a></li>
+					<li><a href="Page.php?id =co">Contacts</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3">	
@@ -82,16 +74,6 @@
 	</div>
 	<div class="row">
 		<div class="container">
-			<div class="col-md-3">
-				<form method="post">
-					<label>Name</label>
-					<input type="text" class="form-control" name="name" value="<?php echo $name ?>">
-					<label>Price to </label>
-					<input type="text" class="form-control" name="price" value="<?php echo $price ?>">
-					
-					<input type="submit" value="Folter" name="filter">
-				</form>
-			</div>
 			<div class="col-md-9" id="information">
 				<?php 
 					include("../blocks/Route.php");					

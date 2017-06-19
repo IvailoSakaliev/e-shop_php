@@ -27,10 +27,10 @@
 		if (!empty($_POST['pass'])) {
 			$pass = test_input($_POST['pass']);
 			
-			if (strlen($pass) > 6) {
+			if (strlen($pass) > 5) {
 					if (!preg_match("/^[a-zA-Z0-9]*$/",$pass)) 
 					{
-						$passError = "Невалидно потребителско име. ";	
+						$passError = "Невалидна парола";	
 						$isCorectInfromation = false;
 					}
 				}
@@ -69,6 +69,7 @@
 		include('../blocks/boostrap.php')
 	 ?>
 	 <link rel="stylesheet" type="text/css" href="../css/styleLogin.css">
+	 <meta charset="utf-8">
 </head>
 <body>
 

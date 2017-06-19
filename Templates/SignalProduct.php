@@ -1,20 +1,29 @@
 
 <?php 
  	session_start();
- 	$name = $price = "";
- 	if (isset($_POST['filter'])) {
- 			$name = $_POST['name'];
- 			$price = $_POST['price'];
- 			$_SESSION['parms']['name'] = $name;
- 			$_SESSION['parms']['price'] = $price;
- 		}	
- 	
+ 	$succsessAddToCard = false;
+ 	$adress = $_SERVER['REQUEST_URI'];
+	$_SESSION['product_id'] = substr($adress,44, strlen($adress) );
+	$title ="";
+	$price = "";
+	include ("../databaseAccess/models/Repository.php");
+	$data = new Repository();
+	$result = $data->GetElement();
+	while ($row = mysqli_fetch_array($result)) {
+				$title = $row['title'];
+				$price = $row['price'];
+				$desc = $row['descriptionPath'];
+				$image = $row['imagePath'];
+	 		}
+ 	if (isset($_POST['addToCard'])) {
+ 		$data->AddOrder('orders', $_SESSION['number_of_order'], $_SESSION['LOGIN'],$title, $price );
+ 	}
  ?>
 <html>
 <head>
 	<title>siSystem</title>
 	<?php 
-		include('../blocks/boostrap.php')
+		include('../blocks/boostrap.php');
 	 ?>
 	<style type="text/css">
 		body
@@ -23,9 +32,10 @@
 		}
 		#fixedMenu
 		{
-			background-color: rgba(0,0,0,0.5) !important;
+			background-color: rgba(0,0,0,0.4) !important;
 		}
 	</style>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/styleOtherPages.css">
 	<script type="text/javascript" src="../JS/menu.js"></script>
@@ -52,7 +62,6 @@
 					if ($id ==1)
 					{
 						
-
 						echo '<ul>	
 								<li><a href="../Admin/index.php">'.$name.'</a></li>
 								<li><a href="../index.php">Sing out</a></li>
@@ -82,20 +91,28 @@
 	</div>
 	<div class="row">
 		<div class="container">
-			<div class="col-md-3">
-				<form method="post">
-					<label>Name</label>
-					<input type="text" class="form-control" name="name" value="<?php echo $name ?>">
-					<label>Price to </label>
-					<input type="text" class="form-control" name="price" value="<?php echo $price ?>">
-					
-					<input type="submit" value="Folter" name="filter">
+			<div class="col-md-9" id="information">
+			<?php 
+				if ($succsessAddToCard) {
+					echo '<h5 class="alert alert-success">Success add product in card !!!</h5>';
+				}
+
+			 ?>
+			
+				<img src="../info/Computers/img/defaut.png" width="500px" '="" height="500px">
+				<h3><?php echo $title ; ?></h3>
+				<p><?php echo $desc ; ?></p>
+				<h2 style="color:blue"><?php echo $price; ?> лв.</h2>
+				<form name="addInCard" method="post">
+					<input class="btn btn-success" type="submit" name="addToCard" value="Sell">
 				</form>
 			</div>
-			<div class="col-md-9" id="information">
-				<?php 
-					include("../blocks/Route.php");					
-				 ?>
+			<div class="col-md-3" id="information">
+				<h3>Контакти при нередности</h3>
+				<hr>
+				-
+				-
+				-
 			</div>
 		</div>
 	</div>

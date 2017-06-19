@@ -10,6 +10,8 @@
 	 ?>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="JS/menu.js"></script>
 </head>
 <body>
 	<div class="row" id="fixedMenu">
@@ -17,12 +19,12 @@
 			<div class="col-md-9">	
 				<ul>
 					<li><a href="">Home</a></li>
-					<li><a href="Templates/Products.php?id=11">Computers</a></li>
-					<li><a href="Templates/Products.php?id=21">Laptops</a></li>
-					<li><a href="Templates/Products.php?id=31">Tablets</a></li>
-					<li><a href="Templates/Products.php?id=41">Phones</a></li>
-					<li><a href="Templates/Products.php?id=5">About us</a></li>
-					<li><a href="">Contacts</a></li>
+					<li><a href="Templates/Products.php?id=aa">Computers</a></li>
+					<li><a href="Templates/Products.php?id=ba">Laptops</a></li>
+					<li><a href="Templates/Products.php?id=ca">Tablets</a></li>
+					<li><a href="Templates/Products.php?id=da">Phones</a></li>
+					<!-- <li><a href="Templates/Products.php?id=5">About us</a></li>
+					<li><a href="">Contacts</a></li> -->
 				</ul>
 			</div>
 			<div class="col-md-3">	
@@ -39,6 +41,7 @@
 					}
 					else if ($id != 1 && $id != 0 ) {
 						echo '<ul>	
+								<li><a href="Templates/User.php?id=1"><img  src="images/cart.png" width="20px" height="20px"></a></li>
 								<li><a href="Templates/User.php">'.$name.'</a></li>
 								<li><a href="index.php" >Sing out</a></li>
 							</ul>';
@@ -58,7 +61,7 @@
 		<div id="start"> 
 			<h1>Welcome</h1>
 			<h3>Click buttor to start the magic</h3>
-			<button>Click here</button>
+			<button onclick="Start()">Click here</button>
 		</div>
 	</div>
 	<div class="row" id="categories">
@@ -72,7 +75,7 @@
 					</div>
 					<div class="infoContainer">
 						<p>Можете да наметире най-добрите настолни компютри които влизат в употреба както за вашия бизнес така и за обикновенния потребител</p>
-						<a href="Templates/Products.php?id=11" class="btn btn-primary"> Got ot page</a>
+						<a href="Templates/Products.php?id=aa" class="btn btn-primary"> Got ot page</a>
 					</div>
 
 				</div>
@@ -82,7 +85,7 @@
 					</div>
 					<div class="infoContainer">
 						<p>Най-добрите здрави и производителни лапторпи на свет а от клас А</p>
-						<a style="margin-top: 40px;" href="Templates/Products.php?id=21" class="btn btn-primary"> Got ot page</a>
+						<a style="margin-top: 40px;" href="Templates/Products.php?id=ba" class="btn btn-primary"> Got ot page</a>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -92,7 +95,7 @@
 					</div>
 					<div class="infoContainer">
 						<p>Таблети за всеки и за всичко което обичте и искате да е със вас навсякъде и по всяко време </p>
-						<a style="margin-top: 20px;" href="Templates/Products.php?id=31" class="btn btn-primary"> Got ot page</a>
+						<a style="margin-top: 20px;" href="Templates/Products.php?id=ca" class="btn btn-primary"> Got ot page</a>
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -101,7 +104,7 @@
 					</div>
 					<div class="infoContainer">
 						<p>Най-добрите смартфони, удобни, проризводителни с красив външен вид, а отвъртре са производителни и още по красиви</p>
-						<a href="Templates/Products.php?id=41" class="btn btn-primary"> Got ot page</a>
+						<a href="Templates/Products.php?id=da" class="btn btn-primary"> Got ot page</a>
 					</div>
 				</div>
 			</div>

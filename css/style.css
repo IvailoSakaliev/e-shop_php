@@ -9,7 +9,7 @@ body
 
 #fixedMenu
 {
-	background-color: black;
+	background-color: transparent;
 	position: fixed;
 	width: 110% !important;
 	z-index: 999;
@@ -31,12 +31,13 @@ body
 }
 #main_nav li:hover
 {
-	background-color: green
+	background-color: transparent;
+	cursor: hand;
+	
 }
-#main_nav li a:hover
-{
-	text-decoration: none;
-}
+
+
+
 
 /*Header*/
 #headerImage
@@ -86,7 +87,8 @@ textarea
 
 #footer
 {
-	background-color: black
+	background-color: black;
+	border-top: 1px solid black;
 }
 footer
 {

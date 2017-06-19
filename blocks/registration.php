@@ -3,6 +3,7 @@
 	$fname= $lname = $email = $user = $pass =$cpass= $target_file = "";
 	$errorFname = $errorLname = $errorEmail = $errorUser = $errorPass=$errorCpass = $errorImage = "";
 	$isCorectInfromation = true;
+	$correctSingUp  = "";
 	if (isset($_POST['registration'])) {
 		// start validation
 		
@@ -66,7 +67,7 @@
 
 		if (!empty($_POST['user'])) {
 			$user = test_input($_POST['user']);
-			if (strlen($user) > 6) {
+			if (strlen($user) > 4) {
 					if (!preg_match("/^[a-zA-Z0-9]*$/",$user)) 
 					{
 						$errorUser = "Невалидно потребителско име. ";	
@@ -121,21 +122,24 @@
 
 		 
 
-		$target_dir = "info/avarat/";
-		$target_image = basename($_FILES["img"]["name"]);
-		if ($target_image == "") {
-			$target_image ="";
-		}
-		else
-		{
-			$target_file = $target_dir . $target_image;
-		}
+		// $target_dir = "info/avarat/";
+		// $target_image = basename($_FILES["img"]["name"]);
+		// if ($target_image == "") {
+		// 	$target_image ="";
+		// }
+		// else
+		// {
+		// 	$target_file = $target_dir . $target_image;
+		// }
 		
 
 		if ($isCorectInfromation) {
 			include("../databaseAccess/models/Registration.php");
 			$data = new Registration($fname, $lname , $email , $user , $pass, $target_file);
 			$data->Registration();
+			$fname= $lname = $email = $user = $pass =$cpass= $target_file = "";
+			$correctSingUp = "Success registration in sistem. If you want you can login <a href='../Login/Login.php'> HERE !</a>";
+	
 		}
 			
 
@@ -160,6 +164,11 @@
  	<h3>Registration</h3>
 			<hr>
 				<div class="col-md-6">
+				<?php 
+			 		if ($correctSingUp != "") {
+			 		 	echo "<H5><p class='alert alert-success'> $correctSingUp</h5>";
+			 		 } 
+			 		 ?>
 					<form method="post" id="reg" enctype="multipart/form-data">
 						<label>First name</label>
 						<input type="text" class="form-control" name="fname" value="<?php  echo $fname?>">
@@ -181,18 +190,18 @@
 						<label>Confirm password</label>
 						<input type="password" class="form-control" name="cpass" >
 						<P style="color:red"><?php echo $errorCpass;?></p>
-						<div class="avatar">
+						<!-- <div class="avatar">
 							<img src="../images/noIMG.png" width="100" height="100">
 							<input style="display: inline-block;vertical-align:bottom;" type="file" name="img" value="$target_file"></br>
 
-						</div>
+						</div> -->
 						<P style="color:red"><?php echo $errorImage?></p>
 
 						<input type="submit" class="btn btn-success" value="Registration" name="registration">
 					</form>
 				</div>
 				<div class="col-md-6">
-					information for registration
+					
 				</div>
  </body>
  </html>

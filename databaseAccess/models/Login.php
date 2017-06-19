@@ -25,24 +25,31 @@
 			$table = "login";
 			$condition = "username = '".$this->username ."' && password = '".$this->password."'";
 			$result = 	$data->GetByParameters($table, $condition);
-			while ($row = mysqli_fetch_assoc($result)) {
-				if ($this->username == $row['username']  && $this->password == $row['password']) {
-					$_SESSION['LOGIN'] = $row['id'];
-					if ($row['id'] == 1) {
-						$_SESSION['name'] = 'admin'; 
-					}
-					else
-					{
-						$_SESSION['name'] = $row['firstName']; 
-					}
-					header('Location: ../Welcome.php');
-				}
-				else
-				{
-					return "incorect user";
-				}
-
+			$incorectUser = true;
+					while ($row = mysqli_fetch_assoc($result)) {
+						if ($this->username == $row['username']  && $this->password == $row['password']) {
+							$_SESSION['LOGIN'] = $row['id'];
+							if ($row['id'] == 1) {
+								
+								$_SESSION['name'] = 'admin'; 
+							}
+							else
+							{
+								$_SESSION['name'] = $row['firstName']; 
+							}
+							header('Location: ../Welcome.php');
+						}
+						else
+						{
+							return "incorect user";
+						}
+						$incorectUser = false;
+					}	
+			if ($incorectUser) {
+				return "incorect user";
 			}
+			
+			
 		}
 		
 

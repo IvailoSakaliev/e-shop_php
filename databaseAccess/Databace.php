@@ -7,6 +7,7 @@
 		private $databasePassword = "";
 		private $connection ;
 		public $result;
+		
 
 		function __construct()
 		{
@@ -47,11 +48,11 @@
 		
 		function GetByParameters($table, $condition)
 		{
-			
 			$query =  "	SELECT * FROM `$table` WHERE  $condition ORDER BY id";
 			$this->QueryResult($query);
 			return $this->result;
 		}
+		
 	}
 
 ?>

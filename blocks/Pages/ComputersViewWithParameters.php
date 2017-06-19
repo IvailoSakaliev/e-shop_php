@@ -1,7 +1,6 @@
 <?php 
-	$table = $_SESSION['table'];
-	include("../databaseAccess/models/GetModel.php");
-	$data = new GetModel();
-	$condiiton = $data->GetProductByParameters($table);
+	include("../databaseAccess/models/Repository.php");
+	$data = new Repository();
+	$condiiton = $data->GetProductByParameters();
 	echo $condiiton;
 ?>

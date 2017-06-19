@@ -1,12 +1,12 @@
 <?php 
 	$isDeleted= false;
 	$table = $_SESSION['table'];
-	$id = $_SESSION['product_id'];
+	
 	if (isset($_POST['delete'])) {
 		$isDeleted = true;
-		include('../databaseAccess/Databace.php');
-		$data = new Databace();
-		$data->Delete($table, $id);
+		include('../databaseAccess/models/Repository.php');
+		$data = new Repository();
+		$data->DeleteElement();
 	}
 
  ?>

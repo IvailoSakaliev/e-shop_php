@@ -3,26 +3,30 @@
 	$id = substr($adress, -2);
 	$table = array("computers","laptops","tablets","phone");
 	switch ($id) {
-		case '11':Products("ComputersView", $table[0]);
+		case 'aa':Products("ComputersView", $table[0]);
 			break;
-		case '12':Products("ComputersViewWithParameters" ,$table[0]);
+		case 'ab':Products("ComputersViewWithParameters" ,$table[0]);
 			break;
-		case '21':Products("ComputersView",$table[1]);
+		case 'ba':Products("ComputersView",$table[1]);
 			break;
-		case '22':Products("ComputersViewWithParameters",$table[1]);
+		case 'bb':Products("ComputersViewWithParameters",$table[1]);
 			break;	
-		case '31':Products("ComputersView", $table[2]);
+		case 'ca':Products("ComputersView", $table[2]);
 			break;
-		case '32':Products("ComputersViewWithParameters",$table[2]);
+		case 'cb':Products("ComputersViewWithParameters",$table[2]);
 			break;	
-		case '41':Products("ComputersView", $table[3]);
+		case 'da':Products("ComputersView", $table[3]);
 			break;
-		case '42':Products("ComputersViewWithParameters",$table[3]);
+		case 'db':Products("ComputersViewWithParameters",$table[3]);
 			break;
-		case '60':SingIn("registration");
+		case 'ex':SingIn("registration");
 			break;
+		case 'ao': About();
+			break; 
+		case 'co': Contact();
+			break; 
 		default:
-			echo "incorect page link";
+			
 			break;
 	}
 	function Products($page, $table)
@@ -30,9 +34,18 @@
 		$_SESSION['table'] = $table;
 		return include ('../blocks/Pages/'.$page.'.php');
 	}
+	
 	function SingIn($page)
 	{
 		return include ('../Template/'.$page.'.php');
+	}
+	function About()
+	{
+		# code...
+	}
+	function Contact()
+	{
+		# code...
 	}
 
 ?>

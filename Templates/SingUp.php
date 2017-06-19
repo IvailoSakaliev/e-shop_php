@@ -19,21 +19,16 @@
 		<div class="container" id="main_nav">
 			<div class="col-md-9">	
 				<ul>
-					<li><a href="../index.php">Home</a></li>
-					<li><a href="Products.php?id=1">Computers</a></li>
-					<li><a href="Products.php?id=2">Laptops</a></li>
-					<li><a href="Products.php?id=3">Tablets</a></li>
-					<li><a href="Products.php?id=4">Phones</a></li>
-					<li><a href="Products.php?id=5">About us</a></li>
-					<li><a href="">Contacts</a></li>
+					<li><a href="../Welcome.php">Home</a></li>
+					<li><a href="Products.php?id=aa">Computers</a></li>
+					<li><a href="Products.php?id=ba">Laptops</a></li>
+					<li><a href="Products.php?id=ca">Tablets</a></li>
+					<li><a href="Products.php?id=da">Phones</a></li>
+					<!-- <li><a href="Page.php?id=ao">About us</a></li>
+					<li><a href="Page.php?id =co">Contacts</a></li> -->
 				</ul>
 			</div>
-			<div class="col-md-3">	
-				<ul>	
-					<li><a href="../Login/Login.php">Sing in</a></li>
-					<li><a href="">Sing up</a></li>
-				</ul>
-			</div>
+			
 		</div>
 	</div>
 	<div class="row" id="pagetemplateHeader">
